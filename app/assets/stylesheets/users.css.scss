@@ -1,0 +1,12 @@
+// show
+
+.profile {
+  @include span-columns(12);
+  background: $light-gray;
+  img {
+    @include span-columns(4);
+  }
+  .profile-info {
+    @include span-columns(8);
+  }
+}

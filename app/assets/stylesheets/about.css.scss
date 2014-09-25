@@ -1,0 +1,10 @@
+.about-wrapper {
+  .about-panel {
+    @include span-columns(4);
+    background: #93c293;
+    height: 100%;
+  }
+  .about {
+    @include span-columns(8);
+  }
+}

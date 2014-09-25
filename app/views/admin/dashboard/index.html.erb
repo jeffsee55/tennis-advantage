@@ -1,0 +1,127 @@
+<h1>Administration</h1>
+
+<div class="vertical-tabs-container">
+  <div class="vertical-tabs">
+    <a href="posts" class="js-vertical-tab vertical-tab is-active" rel="tab1">Posts</a>
+    <a href="programs" class="js-vertical-tab vertical-tab" rel="tab2">Programs</a>
+    <a href="users" class="js-vertical-tab vertical-tab" rel="tab3">Users</a>
+    <a href="inquiries" class="js-vertical-tab vertical-tab" rel="tab4">Inquiries</a>
+    <a href="locations" class="js-vertical-tab vertical-tab" rel="tab5">Locations</a>
+  </div>
+
+  <div class="vertical-tab-content-container">
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Posts</a>
+    <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
+      <%= button_to 'New Post', new_admin_post_path, method: :get %>
+      <table class="table-minimal">
+        <thead>
+          <tr>
+            <th>Post</th>
+            <th>Tags</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.order('created_at DESC').each do |post| %>
+          <tr>
+            <td><%= link_to post.title, edit_admin_post_path(post) %></td>
+            <td><%= post.tags %></td>
+            <td><%= link_to "Show", edit_admin_post_path(post), class: 'btn btn-primary' %> <%= link_to "Edit", edit_admin_post_path(post), class: 'btn btn-primary' %> <%= link_to "Delete", post, method: :delete, class: 'btn btn-alert-outline' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Programs</a>
+    <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
+      <%= button_to 'New Program', new_admin_program_path, method: :get %>
+      <table class="table-minimal">
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>Category</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @programs.order('program_category_id ASC').each do |program| %>
+          <tr>
+            <td><%= link_to program.name, edit_admin_program_path(program) %></td>
+            <td><%= link_to program.program_category.name, edit_admin_program_category_path(program) %></td>
+            <td><%= link_to "Show", program_path(program), class: 'btn btn-primary' %> <%= link_to "Edit", edit_admin_program_path(program), class: 'btn btn-primary' %> <%= link_to "Delete", program, method: :delete, class: 'btn btn-alert-outline' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Users</a>
+    <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
+      <%= button_to 'New User', new_admin_user_path, method: :get %>
+      <table class="table-minimal">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.first_name, edit_admin_user_path(user) %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to "Show", user_path(user), class: 'btn btn-primary' %> <%= link_to "Edit", edit_admin_user_path(user), class: 'btn btn-primary' %> <%= link_to "Delete", user, method: :delete, class: 'btn btn-alert-outline' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Inquiries</a>
+    <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
+      <table class="table-minimal">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @inquiries.each do |inquiry| %>
+          <tr>
+            <td><%= link_to inquiry.name, admin_inquiry_path(inquiry) %></td>
+            <td><%= inquiry.email %></td>
+            <td><%= link_to "Mark Read", edit_admin_inquiry_path(inquiry), class: 'btn btn-primary' %><%= link_to "Delete", '', method: :delete, class: 'btn btn-alert-outline' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab5">Location</a>
+    <div id="tab5" class="js-vertical-tab-content vertical-tab-content">
+      <%= button_to "New Location", new_admin_location_path, method: :get %>
+      <table class="table-minimal">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Address</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @locations.each do |location| %>
+          <tr>
+            <td><%= link_to location.name, admin_location_path(location) %></td>
+            <td><%= location.address.street %></td>
+            <td><%= link_to "Show", location_path(location), class: "btn btn-primary" %> <%= link_to "Edit", edit_admin_location_path(location), class: 'btn btn-primary' %><%= link_to "Delete", location, method: :delete, class: 'btn btn-alert-outline' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

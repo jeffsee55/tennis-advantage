@@ -1,0 +1,22 @@
+<div class="contact-wrapper">
+
+  <div class="box card popout-card">
+    <%= image_tag("http://placehold.it/400/aed39c/&text=About", class: 'box-pic') %>
+    <div class="box-info">
+      <h2>Contact Us</h2>
+      <p><%= Post.where(tags: 'About').first.body.html_safe %></p>
+    </div>
+  </div>
+
+  <div class="contacts">
+    <% @staff.each do |user| %>
+        <%= render :partial => 'shared/user_card', locals: { user: user } %>
+    <% end %>
+  </div>
+
+  <div class="contact-panel card popout-card">
+    <h3>Please fill out the form</h3>
+    <%= render 'inquiries/form' %>
+  </div>
+
+</div>

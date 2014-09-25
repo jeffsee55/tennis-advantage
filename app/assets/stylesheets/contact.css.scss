@@ -1,0 +1,12 @@
+.contact-wrapper {
+  .contact-panel {
+    @include span-columns(4);
+    .contact-list {
+      li {
+      }
+    }
+  }
+  .contacts {
+    @include span-columns(8);
+  }
+}

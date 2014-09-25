@@ -1,0 +1,7 @@
+<h1>Court Locations</h1>
+
+    <% @locations.each do |location| %>
+
+      <%= render :partial => 'location_card', locals: { location: location } %>
+
+    <% end %>

@@ -1,0 +1,60 @@
+.wrapper {
+  @include outer-container;
+  margin-top: 15px;
+}
+
+.card {
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.popout-card {
+  box-shadow: 1px 2px 14px 0px rgba(50, 50, 50, 0.50);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button, input[type='submit'], .btn {
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0.1875em;
+  color: white;
+  display: inline-block;
+  border-color: darken($light-green, 10);
+  border-width: 1px 1px 3px !important;
+  border-style: solid;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: .75em 1em;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    background-color: darken($light-green, 5%);
+  }
+}
+
+.btn-primary {
+  background-color: $light-green;
+}
+
+.btn-alert-outline, .btn-alert {
+  border: 1px solid $red;
+  color: #EF5E5C;
+  background-color: none;
+  &:hover {
+    color: $light-gray;
+    background-color: darken($red, 5%);
+  }
+}
+
+.box {
+  @include span-columns(12);
+  background: $light-gray;
+  .box-pic {
+    @include span-columns(3);
+  }
+  .box-info {
+    @include span-columns(9);
+  }
+}

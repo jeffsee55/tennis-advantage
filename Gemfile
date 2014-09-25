@@ -20,6 +20,13 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "rails_admin"
+gem "devise"
+gem "cancan"
+gem 'ckeditor'
+gem 'paperclip'
+gem 'mapbox-rails'
+
 
 group :development do
   gem "foreman"

@@ -1,6 +1,25 @@
 @charset 'utf-8';
+/*
+*= require mapbox
+*/
 
 @import 'bourbon';
 @import 'base/grid-settings';
 @import 'neat';
 @import 'base/base';
+@import 'components';
+@import 'rails_admin/custom/theming';
+@import 'navigation';
+@import 'home';
+@import 'inquiries';
+@import 'users';
+@import 'contact';
+@import 'about';
+@import 'footer';
+@import 'location';
+@import 'programs';
+@import 'dashboard';
+
+body {
+  margin: 0
+}

@@ -1,0 +1,26 @@
+<div class="box card popout-card">
+  <%= link_to image_tag("http://placehold.it/400/aed39c"), "#", class: "box-pic" %>
+  <div class="box-info">
+    <h4>Programs</h4>
+    <p></p>
+  </div>
+</div>
+
+<ul class="accordion-tabs">
+  <% @program_categories.each do |pc| %>
+    <li class="tab-header-and-content">
+      <a href="#" class="tab-link"><%= pc.name %></a>
+      <div class="tab-content">
+        <% pc.programs.each do |p| %>
+          <div class="box card programs-box">
+            <%= link_to image_tag("http://placehold.it/400/aed39c/&text=#{p.name}"), p, class: "box-pic program-pic" %>
+            <div class="box-info">
+              <h4><%= p.name %></h4>
+              <p><%= p.description.html_safe %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>

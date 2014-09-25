@@ -1,0 +1,7 @@
+<div class="box popout-card card">
+  <%= image_tag "http://placehold.it/400/aed39c/&text=#{@post.title}", class: "box-pic" %>
+  <div class="box-info">
+    <h3><%= @post.title %></h3>
+    <%= @post.body.html_safe %>
+  </div>
+</div>

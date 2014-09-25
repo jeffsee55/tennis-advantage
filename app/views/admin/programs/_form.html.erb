@@ -1,0 +1,30 @@
+<%= form_for([:admin, @program]) do |f| %>
+  <% if @program.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2>
+
+      <ul>
+      <% @program.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.cktext_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :program_category_id %>
+    <%= f.select(:program_category_id, options_for_select([['ANZ Hotshots', 1], ['Tournaments and Competition', 2], ['Other', 3]])) %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

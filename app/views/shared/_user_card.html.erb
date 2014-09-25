@@ -1,0 +1,7 @@
+<div class="box card popout-card">
+  <%= image_tag("http://placehold.it/400/aed39c/&text=#{user.first_name}", class: 'box-pic') %>
+  <div class="box-info">
+    <h2><%= user.full_name %></h2>
+    <p><%= "Phone: #{user.phone} | Email: #{user.email}" %></p>
+  </div>
+</div>
