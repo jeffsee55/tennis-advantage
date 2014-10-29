@@ -1,0 +1,31 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Users</a>
+<div id="tab3" class="js-vertical-tab-content vertical-tab-content">
+  <%= button_to 'New User', new_user_registration_path, method: :get, class: "btn btn-primary-fill" %>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Email</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.first_name, edit_user_registration_path(user) %><%= "- Admin" if user.admin? %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.admin? %>
+            <%= link_to "Remove Admin", user_path(user, "user[admin]" => false), :method => :put, class: 'btn btn-primary' %>
+          <% else %>
+            <%= link_to "Make Admin", user_path(user, "user[admin]" => true), :method => :put, class: 'btn btn-primary' %>
+          <% end %>
+          <% if user == current_user %>
+            <%= link_to "Edit", edit_user_registration_path, class: 'btn btn-primary' %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

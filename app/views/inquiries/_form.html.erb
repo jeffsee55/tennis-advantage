@@ -25,7 +25,7 @@
   </div>
   <div class="field subject">
     <%= f.label :subject %>
-    <%= select_tag(:subject, options_for_select([['New Athlete', 1],['General', 2],['Other', 3]])) %>
+    <%= f.select(:subject, options_for_select([['New Athlete', "New Athlete"],['General', "General"],['Other', "Other"]])) %>
   </div>
   <div class="field message">
     <%= f.label :message %>
@@ -33,6 +33,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: 'btn-primary-fill' %>
   </div>
 <% end %>

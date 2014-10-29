@@ -1,4 +1,20 @@
+@include media($large-screen) {
+  .anz-box {
+    @include span-columns(6);
+  }
+}
 
+.registered-players {
+  height: 150px;
+  width: 100%;
+  background: url('registered-players.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 350px;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 .accordion-tabs {
   $tab-border-color: $base-border-color;

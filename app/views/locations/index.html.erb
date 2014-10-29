@@ -1,7 +1,7 @@
-<h1>Court Locations</h1>
+<%= render partial: "shared/banner", locals: { resource: "Locations", post: @post } %>
 
-    <% @locations.each do |location| %>
-
-      <%= render :partial => 'location_card', locals: { location: location } %>
-
-    <% end %>
+<div class="wrapper">
+  <% @locations.each do |location| %>
+    <%= render :partial => 'location_card', locals: { location: location } %>
+  <% end %>
+</div>

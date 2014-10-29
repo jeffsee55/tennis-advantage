@@ -1,0 +1,7 @@
+<%= render partial: 'shared/banner', locals: { resource: "Shop", post: @post } %>
+
+<div class="wrapper">
+  <% @products.each do |p| %>
+    <%= render :partial => "product_card", locals: { product: p } %>
+  <% end %>
+</div>

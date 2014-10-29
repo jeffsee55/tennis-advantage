@@ -1,0 +1,41 @@
+<div class="wrapper popout-card card outline-box">
+  <h3>Order Summary - <%= @charge.user.full_name %></h3>
+  <hr>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |item| %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td>1</td>
+          <td>$<%= item.product.price %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em>Sub-Total</em></td>
+          <td>$<%= @charge.amount / 100 %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em>Tax</em></td>
+          <td>$7.50</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em>Total</em></td>
+          <td>$<%= (@charge.amount / 100) + 7.50 %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if @charge.address %>
+  <%= render partial: "shared/address_summary", locals: { charge: @charge } %>
+<% end %>

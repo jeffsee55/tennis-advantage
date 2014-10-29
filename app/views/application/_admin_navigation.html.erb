@@ -1,0 +1,15 @@
+<header class="navigation">
+  <div class="navigation-wrapper">
+    <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li class="nav-link"><%= current_user.first_name %></li>
+        <li class="nav-link"><%= link_to "Dashboard", admin_path %></li>
+        <li class="nav-link"><%= link_to "Main Site", root_url %></li>
+        <li class="nav-link"><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>
+      </ul>
+    </div>
+    <div class="navigation-tools">
+    </div>
+  </div>
+</header>

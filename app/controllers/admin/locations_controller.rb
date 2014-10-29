@@ -1,5 +1,9 @@
 class Admin::LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :set_inquiry
+
+  load_and_authorize_resource
+  layout "admin_layout"
 
   # GET /locations
   def index
@@ -43,7 +47,7 @@ class Admin::LocationsController < ApplicationController
   # DELETE /locations/1
   def destroy
     @location.destroy
-    redirect_to locations_url, notice: 'Location was successfully destroyed.'
+    redirect_to admin_path, notice: 'Location was successfully destroyed.'
   end
 
   private

@@ -1,52 +1,63 @@
-.welcome-header {
-  @include span-columns(12);
-  h2 {
-    @include span-columns(10);
-  }
-  .join-us {
-    @include span-columns(2);
-  }
-}
-
-.inquire {
-  display: none;
-}
-
-.welcome-banner {
-  @include span-columns(12);
-  background: $light-gray;
-}
-
-.staff-box {
-  @include span-columns(4);
-}
-
-.staff-pic {
-  @include span-columns(6);
+.banner-wrapper {
   position: relative;
-  &:nth-child(even) {
-    @include omega();
+  margin-bottom: 5px;
+  h4 {
+    font-family: $serif;
+  }
+}
+
+.banner-pic {
+  min-height: 350px;
+  display: none;
+  @include media($large-screen) {
+    display: block;
+    @include span-columns(4);
   }
   img {
-    @include span-columns(12);
-    position:relative;
-  }
-  span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    text-align: center;
-    background: lighten($light-gray, .3);
+    top: 25px;
+    z-index: 100;
   }
 }
 
-.recent-posts {
-  @include span-columns(8);
-  @include omega();
+.banner-info {
+  @include media($large-screen) {
+    @include span-columns(8);
+    @include omega();
+    padding: 2.5em 0;
+  }
+  @include outer-container();
+  padding: 60px 2em;
+  color: $light-gray;
+  .buttons {
+    display: none;
+  }
+  @include media($large-screen) {
+    .buttons {
+      display: inline-block;
+    }
+  }
 }
 
-
+.banner-footer {
+    display: none;
+    @include media($large-screen) {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      @include background(radial-gradient(transparentize($light-green, 0.7), transparentize($light-green, 0.5)));
+      article {
+        @include span-columns(6);
+        @include shift(4);
+        padding: 10px 0;
+        color: $light-gray;
+      }
+  }
+}
 
 //////////////////////////////////////////////////////////////////
 
@@ -54,54 +65,140 @@
   width: (100% / 12) * $columns;
 }
 
-.grid-items-lines {
+
+.welcome-grid {
+  $welcome-grid-items-background: $base-background-color;
+  $welcome-grid-item-background: none;
+  $welcome-grid-item-colors:
+    desaturate($base-accent-color, 30),
+    $light-green,
+    darken($light-green, 20),
+    $base-accent-color,
+    lighten($light-green, 10),
+    lighten($base-accent-color, 10),
+    darken($light-green, 20);
+  $welcome-grid-item-border-size: 9px;
+  $welcome-grid-item-columns: 3;
+  $welcome-grid-item-big-columns: 9;
+  $welcome-grid-item-color: white;
+  $welcome-grid-item-height: 14em;
+
+  @include background(linear-gradient(rgba(100, 100, 100, 0.7), rgba(100, 100, 100, 0.5)), url('court.jpg'));
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+
+
+  .welcome-grid-item {
+    @include transition (all 0.2s ease-in-out);
+    width: 100%;
+    height: 100%;
+    float: left;
+    background: $welcome-grid-item-background;
+    color: white;
+    border-color: none;
+    border: none;
+    text-align: justify;
+    cursor: pointer;
+    @include media($large-screen) {
+      @include grid-item-columns($welcome-grid-item-columns);
+    }
+  }
+
+  .welcome-logo {
+    background: $light-green;
+    .welcome-grid-item {
+      border: 10px solid transparent;
+    }
+  }
+
+  .welcome-grid-item-big {
+    padding: 2em;
+    @include media($large-screen) {
+      @include grid-item-columns($welcome-grid-item-big-columns)
+    }
+    img {
+      @include span-columns(2);
+    }
+  }
+
+}
+
+
+.grid-items {
   $grid-items-background: $base-background-color;
-  $grid-item-background: $base-background-color;
-  $grid-item-border: 1px solid transparentize($base-font-color, .8);
+  $grid-item-background: desaturate($base-accent-color, 30);
+  $grid-item-colors:
+    desaturate($base-accent-color, 30),
+    $light-green,
+    darken($light-green, 20),
+    $base-accent-color,
+    lighten($light-green, 10),
+    lighten($base-accent-color, 10),
+    darken($light-green, 20);
+  $grid-item-border-size: 9px;
+  $grid-item-border-radius: $base-border-radius;
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
-  $grid-item-color: $base-font-color;
+  $grid-item-color: #333;
   $grid-item-height: 14em;
 
+  i {
+    color: white;
+  }
+
   @include clearfix;
-  position: relative;
 
   .grid-item {
     @include transition (all 0.2s ease-in-out);
     height: $grid-item-height;
-    background: $grid-item-background;
     width: 100%;
     overflow: hidden;
     float: left;
     padding: 2em;
-    border-right: $grid-item-border;
-    border-bottom: $grid-item-border;
+    border-top: 0;
+    border-bottom: $grid-item-border-size solid $grid-items-background;
+    border-left: $grid-item-border-size /2 solid $grid-items-background;
+    border-right: $grid-item-border-size /2 solid $grid-items-background;
+    text-align: center;
     cursor: pointer;
+
+    p {
+      text-align: justify;
+    }
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
     }
 
-    &:hover {
-      background: transparentize($grid-item-color, .95);
+    @for $i from 1 to 8 { // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        // box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+        &:hover {
+          background-color: transparentize($background-from-list, .20);
+        }
+      }
     }
   }
 
   .grid-item img {
       display: block;
-      height: 2.5em;
-      margin-bottom: 1.2em;
-      opacity: .2;
+      height: 3em;
+      margin: auto;
+      margin-bottom: 1em;
     }
 
   .grid-item h1 {
-      color: $grid-item-color;
+      color: white;
       font-size: 1.3em;
       margin-bottom: .4em;
     }
 
   .grid-item p {
-      color: transparentize($grid-item-color, .4);
+      margin: auto;
+      color: white;
       @include media($medium-screen) {
         max-width: 70%;
       }
@@ -118,20 +215,24 @@
     }
   }
 
-  // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
-  .bottom-cover {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 3px;
-    background: $grid-items-background;
+   .grid-item-image-1 {
+     @include background(radial-gradient(desaturate($light-green, 0.9), transparentize($light-green, 0.3)), url('grass-court.jpg'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
-  .right-cover {
-    position: absolute;
-    right: 0px;
-    height: 100%;
-    width: 4px;
-    background: $grid-items-background;
+    .grid-item-image-2 {
+     background: url('hotshots.png');
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: 250px;
+   }
+
+   .grid-item-image-3 {
+    @include background(radial-gradient(desaturate($light-green, 0.9), transparentize($light-green, 0.3)), url('tennis-raquets.png'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 }

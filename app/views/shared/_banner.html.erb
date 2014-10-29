@@ -1,0 +1,11 @@
+<div class="banner box popout-card card">
+  <div class="wrapper">
+    <div class="devise-form">
+      <h1><%= resource.capitalize %></h1>
+      <% if post %>
+        <hr>
+        <%= post.body.html_safe %>
+      <% end %>
+    </div>
+  </div>
+</div>

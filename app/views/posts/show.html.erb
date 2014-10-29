@@ -1,19 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @post.tags %>
-</p>
-
-<%= link_to 'Edit', edit_admin_post_path(@post) %> |
-<%= link_to 'Back', admin_posts_path %>
+<div class="popout-card card outline-box wrapper">
+  <h3><%= @post.title %></h3>
+  <hr>
+  <p><%= @post.body.html_safe %></p>
+  <hr>
+  <%= link_to "Back", :back, class: 'btn' %>
+</div>

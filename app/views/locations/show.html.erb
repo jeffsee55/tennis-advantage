@@ -1,10 +1,7 @@
 <%= render :partial => 'location_card', locals: { location: @location } %>
 
-<div class="card">
+
+<div class="box card popout-card">
+  <iframe width="100%" height="450" frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?q=11%20Parkwood%20Place%2C%20North%20Rocks%2C%20New%20South%20Wales%2C%20Australia&key=AIzaSyAbF9So9sIglwBGmjH-ygnXQNl70j3YEmE"></iframe>
 </div>
-
-
-<div id='map' class='dark'></div>
-<script type='text/javascript'>
-  var map = L.mapbox.map('map', 'examples.map-y7l23tes').setView([37.9, -77], 5);
-</script>

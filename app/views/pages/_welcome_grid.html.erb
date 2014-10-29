@@ -1,0 +1,19 @@
+<div class="welcome-grid banner-wrapper">
+  <div class="wrapper">
+    <div class="banner-pic">
+      <%= image_tag "hotshots.png", class: "banner-logo" %>
+    </div>
+    <div class="banner-info">
+      <h4>Recent News - <%= @welcome_message.title %> <span><%= time_ago_in_words(@welcome_message.created_at) %> ago</span></h4>
+      <%= @welcome_message.post_excerpt %><%= link_to "Read more", @welcome_message, style: "color: #f5f5f5"%>
+      <ul class="buttons">
+        <li class="btn btn-primary"><%= link_to "About Us", about_path %></li>
+      </ul>
+    </div>
+    <div class="banner-footer">
+      <div class="wrapper">
+        <article><%= @tagline.body.html_safe %></article>
+      </div>
+    </div>
+  </div>
+</div>

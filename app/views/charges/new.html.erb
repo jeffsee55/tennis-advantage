@@ -1,0 +1,35 @@
+<div class="wrapper outline-box popout-card card">
+  <h3><%= "#{@user.full_name}'s Cart" %></h3>
+  <% @cart_items = @user.new_items %>
+  <%= render partial: "users/cart_summary", locals: { cart_items: @user.new_items, user: @user} %>
+  <hr>
+  <% if @user.new_cart.empty? %>
+    <h3>You need something in your cart before proceeding to checkout</h3>
+  <% else %>
+    <%= simple_form_for @charge do |f| %>
+      <div class="credit-card-box">
+        <%= f.hidden_field :stripe_card_token %>
+        <%= f.hidden_field :amount, value: @user.cart_total_in_cents %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= label_tag :card_number, "Credit Card Number" %>
+        <%= text_field_tag :card_number, nil, name: nil %>
+        <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+        <%= text_field_tag :card_code, nil, name: nil %>
+        <div class="field">
+          <%= label_tag :card_month, "Card Expiration" %>
+          <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+        </div>
+      </div>
+      <hr>
+      <div class="address-box">
+        <%= f.input :address_line_1 %>
+        <%= f.input :address_line_2 %>
+        <%= f.input :city %>
+        <%= f.input :state %>
+        <%= f.input :zip %>
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-primary-fill' %>
+    <% end %>
+  <% end %>
+</div>

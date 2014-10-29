@@ -1,11 +1,21 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: :show
+  before_action :set_user, only: [:show, :update, :view_cart]
 
   def index
     @users = User.all
+    @post = Post.where(title: 'Staff').last
   end
 
   def show
+  end
+
+  def update
+    @user.update!(user_params)
+    redirect_to :back, notice: "#{@user.full_name}'s admin status has been changed."
+  end
+
+  def view_cart
+    @cart_items = @user.cart_items.where(purchased: false)
   end
 
   private
@@ -16,6 +26,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :admin)
     end
 end

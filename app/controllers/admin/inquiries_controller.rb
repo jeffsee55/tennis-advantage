@@ -1,5 +1,7 @@
 class Admin::InquiriesController < ApplicationController
   before_action :set_inquiry, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :set_inquiry
+  layout "admin_layout"
 
   # GET /inquiries
   def index
@@ -42,7 +44,7 @@ class Admin::InquiriesController < ApplicationController
   # DELETE /inquiries/1
   def destroy
     @inquiry.destroy
-    redirect_to inquiries_url, notice: 'Inquiry was successfully destroyed.'
+    redirect_to admin_path, notice: 'Inquiry was successfully destroyed.'
   end
 
   private

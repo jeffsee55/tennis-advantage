@@ -1,4 +1,4 @@
-<%= form_for([:admin,@post]) do |f| %>
+<%= form_for([:admin, @post]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -23,6 +23,16 @@
     <%= f.label :tags %>
     <%= f.text_area :tags %>
   </div>
+  <div class="field">
+    <%= f.label :page %>
+    <%= f.select(:page, options_for_select(["General", "Home", "About", "Contact", "Programs", "Shop", "Staff", "Locations", "Competition"], selected: f.object.page || "General")) %>
+  </div>
+  <div class="field">
+    <%= f.label :context %>
+    <%= f.select(:context, options_for_select(["News", "Welcome", "Philosophy", "Tagline", "None"], selected: f.object.context || "None")) %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

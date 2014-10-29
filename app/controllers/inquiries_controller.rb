@@ -22,9 +22,9 @@ class InquiriesController < ApplicationController
   # POST /inquiries
   def create
     @inquiry = Inquiry.new(inquiry_params)
-
     if @inquiry.save
-      redirect_to admin_path, notice: 'Inquiry was successfully created.'
+      InquiryNotice.inquiry_email(@inquiry).deliver
+      redirect_to :back, notice: 'Inquiry was successfully created'
     else
       render :new
     end

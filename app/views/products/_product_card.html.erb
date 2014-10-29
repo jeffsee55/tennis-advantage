@@ -1,0 +1,20 @@
+<div class="outline-box popout-card">
+  <div class="box-pic"><%= image_tag product.image %></div>
+  <div class="box-info card">
+    <h3><%= product.name %></h3>
+    <h5>From $<%= product.price %></h5>
+    <hr>
+    <p><%= product.description %></p>
+    <hr>
+    <% if current_page?(controller: "products", action: "index") %>
+      <%= link_to "View", product, class: "btn btn-primary btn-inline" %>
+    <% end %>
+    <% if current_page?(controller: "products", action: "show", id: product.id) %>
+      <%= simple_form_for(@cart_item, class: "btn-inline") do |f| %>
+        <%= f.input :product_id, as: :hidden, input_html: { value: product.id } %>
+        <%= f.input :user_id,  as: :hidden, input_html: { value: current_user.id } if current_user %>
+        <%= f.submit "Add To Cart", class: "btn btn-primary-fill" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

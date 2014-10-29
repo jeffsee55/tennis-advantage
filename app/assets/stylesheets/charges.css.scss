@@ -1,0 +1,22 @@
+.credit-card-box {
+  @include clearfix();
+  .field {
+    select {
+      @include media($large-screen) {
+        @include span-columns(2);
+      }
+    }
+  }
+}
+
+.address-box {
+  @include clearfix();
+  @include media($large-screen) {
+    & > div {
+      @include span-columns(6);
+      &:nth-child(even) {
+        @include omega();
+      }
+    }
+  }
+}

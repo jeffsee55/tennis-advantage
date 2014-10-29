@@ -1,78 +1,22 @@
-<div class="welcome-header"><h2>Welcome to Gregson's Tennis Advantage</h2><button class="join-us">Join Us</button></div>
-<div class="inquire">
-  <div class="inquiry-panel"><%= image_tag('http://placehold.it/500/e68780') %></div>
-  <div class="inquiry-form">
-    <%= render 'inquiries/form' %>
-    <button class='close-form btn btn-alert'>Close</button>
-    <%= link_to 'Close', class: 'btn btn-alert' %>
-  </div>
-</div>
-<div class="box popout-card">
-  <div class="box-pic card">
-    <h4>Our Tennis Staff</h4>
-    <ul>
-      <% @staff.limit(4).each do |member| %>
-      <li class="staff-pic">
-        <%= link_to  image_tag("http://placehold.it/100/aed39c/&text=#{member.first_name}"), member %>
-        <span><%= member.first_name %></span>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="box-info card">
-    <h3><%= @post.title %></h3>
-    <p><%= @post.body %></p>
-  </div>
-</div>
-<div class="welcome-tag card">
-  <% @post = Post.where(tags: 'About').first %>
-  <h2>Welcome to Tennis Advantage</h2>
-  <p><%= @post.body %></p>
-</div>
+<%= render 'welcome_grid' %>
+
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-<div class="grid-items-lines">
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-    <h1>Shop</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-    <h1>Programs Offered</h1>
-    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Another Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item grid-item-big">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>View Locations</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-    <h1>A Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-    <h1>Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </a>
-  <a href="javascript:void(0)" class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Last Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </a>
-  <div class="right-cover"></div>
-  <div class="bottom-cover"></div>
+<div class="wrapper">
+  <div class="grid-items">
+    <%= link_to about_path, class: "grid-item grid-item-big grid-item-image-1" do %>
+      <h1>Our Philosophy</h1>
+      <%= @philosophy.body.html_safe %>
+    <% end %>
+    <%= link_to programs_path, class: "grid-item grid-item-image-2" do %>
+    <% end %>
+    <a href="javascript:void(0)" class="grid-item">
+      <h1>Photos</h1>
+      <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+    </a>
+    <%= link_to programs_path, class: "grid-item grid-item-big grid-item-image-3" do %>
+      <h1>Programs</h1>
+      <p>Find what works for you, Gregson's Tennis Advantage offers a wide array of lessons and activities for all ages and skill-levels.</p>
+    <% end %>
+  </div>
 </div>

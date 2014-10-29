@@ -1,0 +1,21 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Inquiries</a>
+<div id="tab4" class="js-vertical-tab-content vertical-tab-content">
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @inquiries.each do |inquiry| %>
+      <tr>
+        <td><%= inquiry.name %></td>
+        <td><%= inquiry.subject %></td>
+        <td><%= inquiry.email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

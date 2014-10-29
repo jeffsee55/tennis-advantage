@@ -1,19 +1,26 @@
 class PagesController < ApplicationController
 
   def home
-    @inquiry = Inquiry.new
-    @post = Post.where(tags: "News").last
+    @welcome_message = Post.where(page: "Home", context: "News").last
+    @tagline = Post.where(page: "Home", context: "Tagline").last
+    @philosophy = Post.where(page: "Home", context: "Philosophy").last
     @staff = User.where(admin: true)
+    @inquiry = Inquiry.new
+  end
+
+  def news
+    @posts = Post.where(context: "News")
   end
 
   def about
-    @post = Post.where(tags: 'About').last
+    @post = Post.where(page: 'About').last
+    @inquiry = Inquiry.new
+    @staff = User.where(admin: true)
   end
 
   def contact
     @inquiry = Inquiry.new
-    @post = Post.where(tags: 'Contact').last
-    @staff = User.where(first_name: "Scott")
+    @post = Post.where(page: 'Contact').last
+    @staff = User.where(admin: true)
   end
-
 end

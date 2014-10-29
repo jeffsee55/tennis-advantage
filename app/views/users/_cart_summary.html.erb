@@ -1,0 +1,25 @@
+<table class="table-minimal">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Manage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cart_items.each do |item| %>
+    <tr>
+      <td><%= item.product.name %></td>
+      <td>$<%= item.product.price %></td>
+      <td>
+        <%= link_to "Remove", item, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %> </li>
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><em>Sub-Total</em></td>
+      <td><em>$<%= user.cart_total %></em></td>
+      <td><%= link_to "Checkout", new_charge_path, class: 'btn btn-primary-fill' %></td>
+    </tr>
+  </tbody>
+</table>

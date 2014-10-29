@@ -1,26 +1,45 @@
-<div class="box card popout-card">
-  <%= link_to image_tag("http://placehold.it/400/aed39c"), "#", class: "box-pic" %>
-  <div class="box-info">
-    <h4>Programs</h4>
-    <p></p>
-  </div>
-</div>
+<%= render partial: "shared/banner", locals: { resource: "Programs", post: @post } %>
 
-<ul class="accordion-tabs">
-  <% @program_categories.each do |pc| %>
-    <li class="tab-header-and-content">
-      <a href="#" class="tab-link"><%= pc.name %></a>
-      <div class="tab-content">
-        <% pc.programs.each do |p| %>
-          <div class="box card programs-box">
-            <%= link_to image_tag("http://placehold.it/400/aed39c/&text=#{p.name}"), p, class: "box-pic program-pic" %>
-            <div class="box-info">
-              <h4><%= p.name %></h4>
-              <p><%= p.description.html_safe %></p>
-            </div>
+<div class="wrapper">
+  <ul class="accordion-tabs">
+    <% @program_categories.order('name ASC').each do |pc| %>
+      <li class="tab-header-and-content">
+        <a href="#" class="tab-link"><%= pc.name %></a>
+        <div class="tab-content">
+          <div class="card">
+            <h3 class="inline-header"><%= pc.name %></h3>
+            <hr>
           </div>
-        <% end %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+            <% if pc.name == "ANZ Hotshots" %>
+              <div class="anz-box">
+                <p><%= pc.description %></p>
+                <%= render 'shared/hotshots' if pc.name == 'ANZ Hotshots' %>
+              </div>
+              <div class="half-box">
+                <% pc.programs.each do |p| %>
+                  <div class="outline-box card programs-box">
+                    <%= image_tag "green-ball.png", class: "box-pic program-pic" %>
+                    <div class="box-info">
+                      <h3><%= p.name %></h3>
+                      <p><%= p.description.html_safe %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% else %>
+              <p><%= pc.description %></p>
+              <% pc.programs.each do |p| %>
+                <div class="outline-box card programs-box">
+                  <%= image_tag "green-ball.png", class: "box-pic program-pic" %>
+                  <div class="box-info">
+                    <h3><%= p.name %></h3>
+                    <p><%= p.description.html_safe %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

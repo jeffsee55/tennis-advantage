@@ -1,0 +1,27 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Posts</a>
+<div id="tab1" class="js-vertical-tab-content vertical-tab-content">
+  <%= button_to 'New Post', new_admin_post_path, method: :get, class: 'btn btn-primary-fill' %>
+  <hr>
+  <p>To update content for a specific page, you can either edit the page with the appropriate title or create a new page with that same title.</p>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Post</th>
+        <th>Context</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.order('created_at DESC').each do |post| %>
+      <tr>
+        <td><%= link_to post.title, edit_admin_post_path(post) %></td>
+        <td><%= post.page %> - <%= post.context %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_post_path(post), class: 'btn btn-primary' %>
+          <%= link_to "Delete", admin_post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-alert' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab7">Product</a>
+<div id="tab7" class="js-vertical-tab-content vertical-tab-content">
+  <%= button_to "New Product", new_admin_product_path, method: :get, class: "btn btn-primary-fill" %>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, admin_product_path(product) %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to "Show", product_path(product), class: "btn btn-primary" %>
+          <%= link_to "Edit", edit_admin_product_path(product), class: 'btn btn-primary' %>
+          <%= link_to "Delete", admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-alert' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

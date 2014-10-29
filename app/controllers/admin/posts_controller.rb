@@ -1,5 +1,9 @@
 class Admin::PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :set_inquiry
+
+  load_and_authorize_resource
+  layout "admin_layout"
 
   # GET /posts
   def index
@@ -42,7 +46,7 @@ class Admin::PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to admin_path, notice: 'Post was successfully destroyed.'
   end
 
   def recent
@@ -57,6 +61,6 @@ class Admin::PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :body, :tags)
+      params.require(:post).permit(:title, :body, :tags, :context, :page)
     end
 end

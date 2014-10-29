@@ -1,0 +1,9 @@
+<%= simple_form_for([:admin, @program_category]) do |pc | %>
+
+  <%= pc.input :name %>
+
+  <%= pc.input :description %>
+
+  <%= pc.submit "Submit" %>
+
+<% end %>

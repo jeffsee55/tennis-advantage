@@ -26,6 +26,9 @@ gem "cancan"
 gem 'ckeditor'
 gem 'paperclip'
 gem 'mapbox-rails'
+gem 'font-awesome-rails'
+gem 'fittext'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 group :development do

@@ -1,10 +1,13 @@
 class ProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
+  before_action :set_inquiry, only: [:index, :show, :edit]
+
 
   # GET /programs
   def index
     @programs = Program.all
     @program_categories = ProgramCategory.all
+    @post = Post.where(title: "Programs").last
   end
 
   # GET /programs/1
@@ -24,6 +27,10 @@ class ProgramsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_program
       @program = Program.find(params[:id])
+    end
+
+    def set_inquiry
+      @inquiry = Inquiry.new
     end
 
     # Only allow a trusted parameter "white list" through.

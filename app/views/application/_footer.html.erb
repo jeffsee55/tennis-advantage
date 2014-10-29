@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="footer-logo">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+    <%= image_tag "gregson-badge-logo.png" %>
   </div>
   <div class="footer-links">
     <ul>
@@ -18,7 +18,11 @@
     <ul>
       <li><h3>Admin</h3></li>
       <li><%= link_to "Admin Dashboard", admin_path %></li>
-      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% else %>
+        <li><%= link_to('Login', new_user_session_path)  %></li>
+      <% end %>
     </ul>
   </div>
 
@@ -26,3 +30,5 @@
 
   <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
 </footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

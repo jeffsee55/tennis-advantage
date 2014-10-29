@@ -1,6 +1,6 @@
 // Typography
 $sans-serif: 'Merriweather Sans', sans-serif;
-$serif: 'Lusitana', serif;
+$serif: 'Roboto Slab', serif;
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
 
@@ -14,13 +14,21 @@ $base-spacing: 15px;
 
 // Colors
 $blue: #4f4f4f;
-$dark-gray: #333;
+$dark-gray: #807A80;
 $medium-gray: #999;
 $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
-$light-green: #68C3A3;
+$light-green: #68bb9a;
 $red: #f59177;
+
+// Buttons
+$btn-primary-background: $light-green;
+$btn-primary-border: $light-green;
+$btn-primary-color: $light-green;
+$btn-alert-background: $red;
+$btn-primary-border: $red;
+$btn-alert-color: $red;
 
 // Background Color
 $base-background-color: white;

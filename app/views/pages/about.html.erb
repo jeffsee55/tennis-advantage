@@ -1,7 +1,23 @@
-<div class="box popout-card card">
-  <%= image_tag "http://placehold.it/400/aed39c/&text=#{@post.title}", class: "box-pic" %>
-  <div class="box-info">
-    <h3><%= @post.title %></h3>
-    <%= @post.body.html_safe %>
-  </div>
+<%= render partial: 'shared/banner', locals: { resource: "About", post: @post } %>
+
+<div class="cards wrapper">
+  <% @staff.each do |user| %>
+    <div class="profile-card">
+      <div class="card-image">
+        <%= image_tag user.avatar %>
+      </div>
+      <div class="card-header">
+        <%= user.full_name %>
+      </div>
+      <div class="card-copy">
+        <p>Aute pariatur exercitation cupidatat occaecat non anim dolore ea in ex duis in sunt ullamco.</p>
+      </div>
+      <div class="card-stats">
+        <ul>
+          <li>Email<span><%= user.email %></span></li>
+          <li>Phone<span><%= user.phone %></span></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 </div>

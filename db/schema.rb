@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920033738) do
+ActiveRecord::Schema.define(version: 20141028210132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: true do |t|
-    t.string   "street"
     t.string   "township"
     t.string   "city"
     t.string   "country"
@@ -26,6 +25,9 @@ ActiveRecord::Schema.define(version: 20140920033738) do
     t.datetime "updated_at"
     t.integer  "location_id"
     t.string   "state"
+    t.integer  "user_id"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
   end
 
   create_table "bootsy_image_galleries", force: true do |t|
@@ -40,6 +42,30 @@ ActiveRecord::Schema.define(version: 20140920033738) do
     t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cart_items", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "charge_id"
+    t.boolean  "purchased",  default: false
+  end
+
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "charges", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "address_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.boolean  "shipped"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -91,12 +117,34 @@ ActiveRecord::Schema.define(version: 20140920033738) do
     t.datetime "updated_at"
   end
 
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
     t.text     "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "context"
+    t.string   "page"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "price"
+    t.integer  "product_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "program_categories", force: true do |t|
@@ -132,6 +180,10 @@ ActiveRecord::Schema.define(version: 20140920033738) do
     t.inet     "last_sign_in_ip"
     t.boolean  "admin"
     t.boolean  "super_admin"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

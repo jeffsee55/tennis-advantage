@@ -1,0 +1,14 @@
+<%= render partial: "shared/banner", locals: { resource: "News", post: @post } %>
+
+<div class="wrapper">
+  <% @posts.order('created_at DESC').each do |p| %>
+  <div class="popout-card card outline-box">
+    <h3><%= p.title %></h3>
+    <p><%= time_ago_in_words( p.created_at ) %> ago</p>
+    <hr>
+    <p><%= p.body.html_safe %></p>
+    <hr>
+    <%= link_to "Back", :back, class: 'btn' %>
+  </div>
+  <% end %>
+</div>

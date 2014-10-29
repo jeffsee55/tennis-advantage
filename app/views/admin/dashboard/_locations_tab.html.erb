@@ -1,0 +1,26 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab5">Location</a>
+<div id="tab5" class="js-vertical-tab-content vertical-tab-content">
+  <%= button_to "New Location", new_admin_location_path, method: :get, class: "btn btn-primary-fill" %>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Address</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @locations.each do |location| %>
+      <tr>
+        <td><%= link_to location.name, admin_location_path(location) %></td>
+        <td><%= location.address.state %></td>
+        <td>
+          <%= link_to "Show", location_path(location), class: "btn btn-primary" %>
+          <%= link_to "Edit", edit_admin_location_path(location), class: 'btn btn-primary' %>
+          <%= link_to "Delete", admin_location_path(location), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-alert' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

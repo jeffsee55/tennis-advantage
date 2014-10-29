@@ -1,6 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////
 
-
+.admin-welcome {
+  float: right;
+  vertical-align: middle;
+  margin-top: 1.2em;
+  display: none;
+  @include media($large-screen) {
+    display: block;
+  }
+}
 
 
 

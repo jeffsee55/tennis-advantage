@@ -1,5 +1,9 @@
 class Admin::ProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :set_inquiry
+
+  load_and_authorize_resource
+  layout "admin_layout"
 
   # GET /programs
   def index
@@ -42,7 +46,7 @@ class Admin::ProgramsController < ApplicationController
   # DELETE /programs/1
   def destroy
     @program.destroy
-    redirect_to programs_url, notice: 'Program was successfully destroyed.'
+    redirect_to admin_path, notice: 'Program was successfully destroyed.'
   end
 
   def competitions

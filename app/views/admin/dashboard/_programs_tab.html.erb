@@ -1,0 +1,25 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Programs</a>
+<div id="tab2" class="js-vertical-tab-content vertical-tab-content">
+  <%= button_to 'New Program', new_admin_program_path, method: :get, class: "btn btn-primary-fill" %>
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Category</th>
+        <th>Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @programs.order('program_category_id ASC').each do |program| %>
+      <tr>
+        <td><%= link_to program.name, edit_admin_program_path(program) %></td>
+        <td><%= link_to program.program_category.name, edit_admin_program_category_path(program) %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_program_path(program), class: 'btn btn-primary' %>
+          <%= link_to "Delete", admin_program_path(program), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-alert' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

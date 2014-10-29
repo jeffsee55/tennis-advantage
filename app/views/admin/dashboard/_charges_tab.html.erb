@@ -1,0 +1,29 @@
+<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab8">Charges</a>
+<div id="tab8" class="js-vertical-tab-content vertical-tab-content">
+  <table class="table-minimal">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Amount</th>
+        <th></th>
+        <th>Mark Shipped</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @charges.each do |charge| %>
+      <tr>
+        <td><%= charge.user.full_name %></td>
+        <td>$<%= charge.amount_in_dollars %></td>
+        <td><%= "Shipped" if charge.shipped? %></td>
+        <td>
+          <% if charge.shipped? %>
+            <%= link_to "Unshipped", admin_charge_path(charge, "charge[shipped]" => false), method: :put, class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to "Shipped?", admin_charge_path(charge, "charge[shipped]" => true), method: :put, class: "btn btn-primary" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

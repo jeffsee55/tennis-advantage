@@ -1,0 +1,15 @@
+<div class="wrapper card popout-card">
+  <h1><%= @program_category.name %></h1>
+
+  <p><%= @program_category.description %></p>
+
+  <h4>Programs Include:</h4>
+  <ul>
+    <% @program_category.programs.each do |p| %>
+      <li><%=link_to p.name, p %></li>
+    <% end %>
+  </ul>
+  <br>
+
+  <%= link_to "Edit Program Category", edit_admin_program_category_path, class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="popout-card card outline-box">
+    <div class="box-pic"><%= image_tag('gregson-square-logo.png') %></div>
+    <div class="box-info">
+      <h3><%= "#{@user.first_name}'s Cart" %></h3>
+      <hr>
+      <% if @user.new_cart.empty? %>
+        Your cart is empty! <%= link_to "Go shop.", products_path %>
+      <% else %>
+        <%= render partial: "cart_summary", locals: { cart_items: @cart_items, user: @user} %>
+      <% end %>
+    </div>
+  </div>
+</div>
