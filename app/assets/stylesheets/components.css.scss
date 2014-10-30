@@ -82,10 +82,12 @@ h4 {
 
 .banner {
   @include background(linear-gradient(rgba(100, 100, 100, 0.7), rgba(100, 100, 100, 0.6)), url('court.jpg'));
-  color: white;
   @include clearfix;
-  padding-left: 2.5em;
+  color: white;
   padding-top: 60px;
+  @include media($large-screen) {
+    padding-left: 2.5em;
+  }
   h1 {
     font-family: $serif;
     font-size: 3.5em;

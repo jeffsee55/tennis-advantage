@@ -4,18 +4,15 @@
   <meta charset="utf-8" />
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
-  <link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  <%= tag :meta, name: "stripe-key", content: ENV["STRIPE_PUBLISHABLE_KEY"] %>
+  <%= tag :meta, :name => "stripe-key", :content => ENV['STRIPE_PUBLISHABLE_KEY'] %>
   <title><%= title %></title>
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "navigation" %>
   <%= render "flashes" -%>
+  <%= render "navigation" %>
   <%= yield %>
   <%= render "footer" %>
   <%= render "javascript" %>

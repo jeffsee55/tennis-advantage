@@ -317,7 +317,7 @@ dl dd {
   background: #fff6bf;
   color: #8c7800;
   font-weight: bold;
-  margin-bottom: 0.75em;
+  margin-bottom: 0px;
   padding: 0.75em;
 }
 /* line 8, /Users/jeffsee55/Code/gregsons_tennis_advantage/app/assets/stylesheets/base/mixins/_flash.scss */

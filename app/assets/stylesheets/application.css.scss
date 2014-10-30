@@ -4,12 +4,13 @@
 *= require font-awesome-rails
 */
 
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import 'bourbon';
 @import 'base/grid-settings';
 @import 'neat';
 @import 'base/base';
 @import 'components';
-@import 'rails_admin/custom/theming';
 @import 'navigation';
 @import 'home';
 @import 'shop';

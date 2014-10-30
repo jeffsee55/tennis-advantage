@@ -1,4 +1,4 @@
-<%= render partial: 'shared/banner', locals: { resource: "Please sign in" } %>
+<%= render partial: 'shared/banner', locals: { resource: "Please sign in", post: nil } %>
 
 <div class="wrapper">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

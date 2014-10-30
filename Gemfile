@@ -20,16 +20,11 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
-gem "rails_admin"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem "ckeditor"
 gem "devise"
 gem "cancan"
-gem 'ckeditor'
-gem 'paperclip'
-gem 'mapbox-rails'
-gem 'font-awesome-rails'
-gem 'fittext'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
+gem "paperclip"
 
 group :development do
   gem "foreman"
@@ -57,5 +52,6 @@ group :test do
 end
 
 group :staging, :production do
+  gem 'rails_12factor'
   gem "newrelic_rpm", ">= 3.7.3"
 end

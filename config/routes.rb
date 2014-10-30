@@ -40,7 +40,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   authenticate :user do
     namespace :admin do
       get '', to: 'dashboard#index', as: '/'

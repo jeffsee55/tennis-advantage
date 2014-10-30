@@ -14,18 +14,15 @@ end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
-    c.syntax = [:expect, :should]
+    c.syntax = :expect
   end
 
   config.include Features, type: :feature
   config.include Formulaic::Dsl, type: :feature
-  config.include FactoryGirl::Syntax::Methods
-
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.use_transactional_fixtures = false
-
 end
 
 ActiveRecord::Migration.maintain_test_schema!

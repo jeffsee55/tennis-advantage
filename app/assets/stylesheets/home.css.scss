@@ -83,7 +83,7 @@
   $welcome-grid-item-color: white;
   $welcome-grid-item-height: 14em;
 
-  @include background(linear-gradient(rgba(100, 100, 100, 0.7), rgba(100, 100, 100, 0.5)), url('court.jpg'));
+  @include background(linear-gradient(rgba(100, 100, 100, 0.6), rgba(100, 100, 100, 0.6)), url('court.jpg'));
   background-size: cover;
   background-position: fixed;
   background-repeat: no-repeat;
@@ -216,7 +216,7 @@
   }
 
    .grid-item-image-1 {
-     @include background(radial-gradient(desaturate($light-green, 0.9), transparentize($light-green, 0.3)), url('grass-court.jpg'));
+     @include background(radial-gradient(transparentize(#d1cdb2, 0.2), transparentize(#d1cdb2, 0.3)), url('grass-court.jpg'));
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -230,7 +230,7 @@
    }
 
    .grid-item-image-3 {
-    @include background(radial-gradient(desaturate($light-green, 0.9), transparentize($light-green, 0.3)), url('tennis-raquets.png'));
+    @include background(radial-gradient(transparentize($dark-gray, 0.1), transparentize($dark-gray, 0.2)), url('tennis-raquets.png'));
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

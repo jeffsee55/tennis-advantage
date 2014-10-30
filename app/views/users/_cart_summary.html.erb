@@ -19,7 +19,7 @@
     <tr>
       <td><em>Sub-Total</em></td>
       <td><em>$<%= user.cart_total %></em></td>
-      <td><%= link_to "Checkout", new_charge_path, class: 'btn btn-primary-fill' %></td>
+      <td><%= link_to "Checkout", new_charge_path, class: 'btn btn-primary-fill' unless current_page? controller: "charges", action: "new" %></td>
     </tr>
   </tbody>
 </table>

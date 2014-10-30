@@ -266,10 +266,11 @@ header.navigation {
     margin-top: 1em;
     float: right;
     @include transition (all 0.2s ease-in-out);
-    display: inline;
+    display: none;
 
     @include media($large-screen) {
       padding: .5em 1em;
+      display: inline;
     }
 
     &:hover {

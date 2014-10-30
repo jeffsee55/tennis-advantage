@@ -1,5 +1,6 @@
 <div class="wrapper popout-card card outline-box">
   <h3>Order Summary - <%= @charge.user.full_name %></h3>
+  <p>Thank you for your order!</p>
   <hr>
   <table class="table-minimal">
     <thead>
@@ -16,6 +17,7 @@
           <td>1</td>
           <td>$<%= item.product.price %></td>
         </tr>
+      <% end %>
         <tr>
           <td></td>
           <td><em>Sub-Total</em></td>
@@ -31,7 +33,6 @@
           <td><em>Total</em></td>
           <td>$<%= (@charge.amount / 100) + 7.50 %></td>
         </tr>
-      <% end %>
     </tbody>
   </table>
 </div>
