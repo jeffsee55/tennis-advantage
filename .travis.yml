@@ -5,9 +5,9 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 before_script:
   - cp .sample.env .env
-  
+
   - psql -c 'create database "gregsons_tennis_advantage_test";' -U postgres
-  
+
 branches:
   only:
     - master
@@ -18,7 +18,7 @@ language:
 notifications:
   email:
     - false
-rvm:
+rbenv:
   - 2.1.2
 addons:
   postgresql: "9.3"
