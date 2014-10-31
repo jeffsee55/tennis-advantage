@@ -1,3 +1,4 @@
 class Page < ActiveRecord::Base
-  def 
+  def
+  end
 end
