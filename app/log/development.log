@@ -1,9 +1,0 @@
-  [1m[36mActiveRecord::SchemaMigration Load (25.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateDelayedJobs (20141029192708)
-  [1m[35m (0.2ms)[0m  BEGIN
-  [1m[36m (44.1ms)[0m  [1mDROP TABLE "delayed_jobs"[0m
-  [1m[35m (51.4ms)[0m  CREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
-  [1m[36m (2.6ms)[0m  [1mCREATE  INDEX  "delayed_jobs_priority" ON "delayed_jobs"  ("priority", "run_at")[0m
-  [1m[35mSQL (11.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141029192708"]]
-  [1m[36m (8.3ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
