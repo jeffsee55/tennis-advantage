@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   authenticate :user do
     namespace :admin do
-      get '', to: 'dashboard#index', as: '/'
+      get '', to: 'dashboard#index', as: '/admin'
       resources :inquiries, except: [:new, :create, :edit]
       resources :locations
       resources :posts
