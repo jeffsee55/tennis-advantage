@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to :back, notice: "#{@user.full_name}'s admin status has been changed."
+    redirect_to :back, notice: "#{@user.full_name}'s has been successfully edited"
   end
 
   def view_cart
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :admin)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :description, :admin)
     end
 end

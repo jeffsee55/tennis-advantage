@@ -1,14 +1,4 @@
-<div class="outline-box card popout-card">
-  <%= link_to image_tag("gregson-square-logo.png"), location, class: "box-pic" %>
-  <div class="box-info">
-    <h1 class="inline-header"><%= location.name %></h1>
-    <%= link_to 'View in Google Maps', '#', class: 'btn btn-primary' %>
+<div class="card popout-card">
+    <h3 class="inline-header"><%= location.name %></h3>
     <p><%= location.description.html_safe %></p>
-    <p>
-      <%= location.address[:street] %><br>
-      <%= location.address[:township] %></br>
-      <%= location.address[:city] %>,
-      <%= location.address[:country] %>
-    </p>
-  </div>
 </div>

@@ -22,7 +22,7 @@ gem "unicorn"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem "ckeditor"
 gem "devise"
-gem "cancan"
+gem 'cancancan', '~> 1.9'
 gem "paperclip"
 
 group :development do

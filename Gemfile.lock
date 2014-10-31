@@ -48,7 +48,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
-    cancan (1.6.10)
+    cancancan (1.9.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -253,7 +253,7 @@ DEPENDENCIES
   awesome_print
   bourbon (~> 3.2.1)
   byebug
-  cancan
+  cancancan (~> 1.9)
   capybara-webkit (>= 1.2.0)
   ckeditor
   coffee-rails

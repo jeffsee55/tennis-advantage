@@ -1,4 +1,4 @@
-<%= render partial: 'shared/banner', locals: { resource: "Edit #{resource_name}" } %>
+<%= render partial: 'shared/banner', locals: { resource: "Edit #{resource_name}", post: nil } %>
 
 <div class="wrapper">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -11,10 +11,11 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%= f.input :password, autocomplete: "off", placeholder: "leave blank if you don't want to change it", required: false %>
-      <%= f.input :password_confirmation, placeholder: "only if you're changing your password", required: false %>
-      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-      <%= f.input :avatar %>
+      <%= f.input :password, autocomplete: "off", placeholder: "Leave blank if you don't want to change it", required: false %>
+      <%= f.input :password_confirmation, placeholder: "Only if you're changing your password", required: false %>
+      <%= f.input :current_password, hint: "We need your current password to confirm your changes", required: true %>
+      <%= f.input :description, hint: "Something about yourself" %>
+      <%= f.input :avatar, hint: "200px by 200px images work best" %>
     </div>
 
     <div class="form-actions">

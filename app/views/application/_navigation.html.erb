@@ -18,9 +18,6 @@
       <% if @inquiry %>
         <%= render "shared/inquiry_modal" %>
       <% end %>
-      <% if current_page? admin_url %>
-        <span class="admin-welcome">Administration - Welcome, <%= current_user.first_name %></span>
-      <% end %>
     </div>
   </div>
 </header>

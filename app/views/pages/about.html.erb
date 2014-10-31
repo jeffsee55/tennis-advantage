@@ -10,7 +10,7 @@
         <%= user.full_name %>
       </div>
       <div class="card-copy">
-        <p>Aute pariatur exercitation cupidatat occaecat non anim dolore ea in ex duis in sunt ullamco.</p>
+        <p><%= user.description_excerpt if user.description %></p>
       </div>
       <div class="card-stats">
         <ul>

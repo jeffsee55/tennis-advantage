@@ -1,5 +1,4 @@
 class Admin::DashboardController < ApplicationController
-  authorize_resource class: false
   skip_before_filter :set_inquiry
   layout "admin_layout"
 
@@ -13,5 +12,7 @@ class Admin::DashboardController < ApplicationController
     @locations = Location.all
     @products = Product.all
     @charges = Charge.all
+    authorize! :index, @user
   end
+
 end

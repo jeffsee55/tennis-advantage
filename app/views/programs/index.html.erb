@@ -9,7 +9,6 @@
           <div class="card">
             <h3 class="inline-header"><%= pc.name %></h3>
             <hr>
-          </div>
             <% if pc.name == "ANZ Hotshots" %>
               <div class="anz-box">
                 <p><%= pc.description %></p>
@@ -30,11 +29,8 @@
               <p><%= pc.description %></p>
               <% pc.programs.each do |p| %>
                 <div class="outline-box card programs-box">
-                  <%= image_tag "green-ball.png", class: "box-pic program-pic" %>
-                  <div class="box-info">
-                    <h3><%= p.name %></h3>
-                    <p><%= p.description.html_safe %></p>
-                  </div>
+                  <h3><%= p.name %></h3>
+                  <p><%= p.description.html_safe %></p>
                 </div>
               <% end %>
             <% end %>

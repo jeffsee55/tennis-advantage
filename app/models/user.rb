@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     self.first_name + " " + self.last_name
   end
 
+  def description_excerpt
+    self.description.truncate(120)
+  end
+
   def new_items
      self.cart_items.where(purchased: false)
   end

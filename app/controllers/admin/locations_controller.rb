@@ -17,7 +17,6 @@ class Admin::LocationsController < ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
-    @location.build_address
   end
 
   # GET /locations/1/edit
