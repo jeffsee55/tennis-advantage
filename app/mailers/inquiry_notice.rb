@@ -6,7 +6,7 @@ class InquiryNotice < ActionMailer::Base
     email_address = "jeffsee.55@gmail.com"
     mail(
       to: email_address,
-      subject: "This is a test email"
+      subject: "Inquiry from #{@inquiry.name}"
     )
   end
 end
