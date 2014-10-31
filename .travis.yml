@@ -18,7 +18,7 @@ language:
 notifications:
   email:
     - false
-rbenv:
+rvm:
   - 2.1.2
 addons:
   postgresql: "9.3"
