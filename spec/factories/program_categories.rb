@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :program_category do
-    name "MyString"
+    name "program-category"
     description "MyText"
   end
 end

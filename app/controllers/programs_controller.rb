@@ -7,7 +7,7 @@ class ProgramsController < ApplicationController
   def index
     @programs = Program.all
     @program_categories = ProgramCategory.all
-    @post = Post.where(title: "Programs").last
+    @post = Post.where(page: "Programs").last
   end
 
   # GET /programs/1

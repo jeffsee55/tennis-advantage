@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :address do
-    street "MyString"
+    address_line_1 "123 Street"
+    address_line_2 "MyString"
     township "MyString"
     city "MyString"
     country "MyString"

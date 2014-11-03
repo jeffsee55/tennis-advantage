@@ -5,5 +5,7 @@ FactoryGirl.define do
     title "MyString"
     body "MyText"
     tags "MyTags"
+    page "MyPage"
+    context "MyContext"
   end
 end

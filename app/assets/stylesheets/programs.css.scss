@@ -40,6 +40,10 @@
       display: inline;
     }
 
+    a.tab-link {
+      font-size: 1.8em;
+    }
+
     &:first-child a.tab-link {
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;

@@ -5,10 +5,8 @@
     <% @program_categories.order('name ASC').each do |pc| %>
       <li class="tab-header-and-content">
         <a href="#" class="tab-link"><%= pc.name %></a>
-        <div class="tab-content">
+        <div class="tab-content <%= pc.make_class_name %>">
           <div class="card">
-            <h3 class="inline-header"><%= pc.name %></h3>
-            <hr>
             <% if pc.name == "ANZ Hotshots" %>
               <div class="anz-box">
                 <p><%= pc.description %></p>

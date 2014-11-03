@@ -29,6 +29,7 @@ group :development do
   gem "foreman"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "better_errors"
 end
 
 group :development, :test do
@@ -38,6 +39,9 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "pry-rails"
   gem "rspec-rails", "~> 2.14.0"
+  gem "guard"
+  gem 'guard-rspec', require: false
+  gem 'guard-livereload', require: false
 end
 
 group :test do
@@ -48,6 +52,7 @@ group :test do
   gem "shoulda-matchers", require: false
   gem "timecop"
   gem "webmock"
+  gem "stripe-ruby-mock"
 end
 
 group :staging, :production do

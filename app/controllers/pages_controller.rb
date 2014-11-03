@@ -4,7 +4,6 @@ class PagesController < ApplicationController
     @welcome_message = Post.where(context: "News").last
     @tagline = Post.where(page: "Home", context: "Tagline").last
     @philosophy = Post.where(context: "Philosophy").last
-    @staff = User.where(admin: true)
     @inquiry = Inquiry.new
   end
 
