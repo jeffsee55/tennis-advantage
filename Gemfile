@@ -58,4 +58,7 @@ end
 group :staging, :production do
   gem 'rails_12factor'
   gem "newrelic_rpm", ">= 3.7.3"
+  gem "rack-cache"
+  gem "dalli"
+  gem "kgio"
 end
