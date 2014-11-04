@@ -19,12 +19,12 @@ Rails.application.configure do
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   client = Dalli::Client.new(ENV["MEMCACHIER_SERVERS"] || "").split(","),
-                              username: ENV["MEMCACHIER_USERNAME"],
-                              password: ENV["MEMCACHIER_PASSWORD"],
-                              failover: true,
-                              socket_timeout: 1.5,
-                              socket_failure_delay: 0.2,
-                              value_max_bytes: 10485760)
+                              username = ENV["MEMCACHIER_USERNAME"],
+                              password = ENV["MEMCACHIER_PASSWORD"],
+                              failover = true,
+                              socket_timeout = 1.5,
+                              socket_failure_delay = 0.2,
+                              value_max_bytes = 10485760)
 
   config.action_dispatch.rack_cache = {
     metastore: client,
